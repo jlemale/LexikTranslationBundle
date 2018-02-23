@@ -217,6 +217,7 @@ class LexikTranslationExtension extends Extension
 
         $tokenFinderDefinition = new Definition();
         $tokenFinderDefinition->setClass($container->getParameter('lexik_translation.token_finder.class'));
+        $tokenFinderDefinition->setPublic(true);
         $tokenFinderDefinition->setArguments(array(
             new Reference('profiler'),
             new Parameter('lexik_translation.token_finder.limit'),

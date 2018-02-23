@@ -37,7 +37,7 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->scalarNode('base_layout')
                     ->cannotBeEmpty()
-                    ->defaultValue('LexikTranslationBundle::layout.html.twig')
+                    ->defaultValue('@LexikTranslation/layout.html.twig')
                 ->end()
 
                 ->arrayNode('fallback_locale')

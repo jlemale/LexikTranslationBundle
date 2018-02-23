@@ -71,7 +71,7 @@ class ImportTranslationsCommand extends ContainerAwareCommand
         if ($bundleName) {
             $bundle = $this->getApplication()->getKernel()->getBundle($bundleName);
 
-            if (null !== $bundle->getParent()) {
+            if ( method_exists( $bundle , 'getParent' ) && ( null !== $bundle->getParent() )) {
                 // due to symfony's bundle inheritance if a bundle has a parent it is fetched first.
                 // so we tell getBundle to NOT fetch the first if a parent is present
                 $bundles = $this->getApplication()->getKernel()->getBundle($bundle->getParent(), false);
@@ -182,6 +182,28 @@ class ImportTranslationsCommand extends ContainerAwareCommand
      */
     protected function importAppTranslationFiles(array $locales, array $domains)
     {
+        // framework-bundle is required, so look for translator.paths config
+        $translator = $this->getContainer()->get('lexik_translation.translator');
+        
+        $dirs = [];
+        
+        foreach( $locales as $locale )
+        {
+            $catalogue = $translator->getCatalogue( $locale );
+            
+            foreach( $catalogue->getResources() as $resource )
+            {
+                $dirs[] = dirname( $resource->getResource() );
+            }
+        }
+        
+        foreach( array_unique( $dirs ) as $dir )
+        {
+            $finder = $this->findTranslationsFiles( $dir , $locales, $domains, false);
+            $this->importTranslationFiles($finder);
+        }
+        
+        // old fashion
         $finder = $this->findTranslationsFiles($this->getApplication()->getKernel()->getProjectDir() . '/translations', $locales, $domains, false);
         $this->importTranslationFiles($finder);
     }

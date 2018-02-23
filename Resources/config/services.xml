@@ -162,5 +162,8 @@
             <tag name="kernel.event_listener" event="lexik_translation.event.get_database_resources" method="onGetDatabaseResources"  />
         </service>
 
+        <!-- alias on framework.translator -->
+        <service id="lexik_translation.translator" public="true" alias="translator.default" />
+
     </services>
 </container>

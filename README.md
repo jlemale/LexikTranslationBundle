@@ -10,6 +10,12 @@ This Symfony bundle allows you to:
 
 [![Build Status](https://travis-ci.org/jlemale/LexikTranslationBundle.png?branch=master)](https://travis-ci.org/jlemale/LexikTranslationBundle)
 
+[![Build Status](https://travis-ci.org/lxxps/LexikTranslationBundle.png?branch=master)](https://travis-ci.org/lxxps/LexikTranslationBundle)
+[![Latest Stable Version](https://poser.pugx.org/lexik/translation-bundle/v/stable.svg)](https://packagist.org/packages/lexik/translation-bundle)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/dda3efbd-0df3-44eb-beca-3659000021d4/mini.png)](https://insight.sensiolabs.com/projects/dda3efbd-0df3-44eb-beca-3659000021d4)
+
+
+
 The idea is to:
 
 * write your translations files (xliff, yml or php) as usual for at least one language (the default language of your website for example).
