@@ -13,7 +13,6 @@ services:
     - mongodb
 
 env:
-    - SYMFONY_VERSION=3.4.* DB=pdo_mysql DB_USER=root DB_NAME=lexik_test
     - SYMFONY_VERSION=4.0.* DB=pdo_mysql DB_USER=root DB_NAME=lexik_test
     - SYMFONY_VERSION=4.1.* DB=pdo_mysql DB_USER=root DB_NAME=lexik_test
 
